@@ -27,12 +27,10 @@ const QuestionDetail = () => {
 
   return (
     <div>
-      {questions.length && questions.map((questions, key) => {
+      {questions.length && questions.map((questions, key) => (
+        <Question questions={questions} key={key} />
+      ))}
 
-
-        console.log("<kelvin></kelvin>")
-      })}
-      <Question />
     </div>
   );
 }

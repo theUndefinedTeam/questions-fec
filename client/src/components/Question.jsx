@@ -4,8 +4,7 @@ const Question = (props) => {
 
     return (
         <div>
-            {console.log("test2")}
-            Kelvin
+            {props.questions.question_body}
         </div>
     )
 }
