@@ -3,19 +3,22 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import { NavLink } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 import getquestions from '../api/getquestions.jsx'
 import Question from './Question.jsx'
 
-const QuestionDetail = () => {
 
+
+const QuestionDetail = (props) => {
+  let { id } = useParams();
+  console.log(id)
   const getAll = () => {
-    return getquestions(3).then(function (obj) {
-      var promises = obj.data.results.map(function (id) {
-        return id
+    return getquestions(id).then(function (obj) {
+      var promises = obj.data.results.map(function (question) {
+        return question
       });
       return Promise.all(promises);
     });
-
   }
   const [questions, setQuestions] = useState([])
   useEffect(() => {
@@ -28,9 +31,8 @@ const QuestionDetail = () => {
   return (
     <div>
       {questions.length && questions.map((questions, key) => (
-        <Question questions={questions} key={key} />
+        < Question questions={questions} key={key} />
       ))}
-
     </div>
   );
 }

@@ -5,23 +5,24 @@ import Row from 'react-bootstrap/Row';
 import SearchBar from './SearchBar.jsx';
 import getquestion from '../api/getquestions.jsx'
 import QuestionDetail from './QuestionDetail.jsx'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { HashRouter, Route } from "react-router-dom";
+import NotFound from './NotFound.jsx';
 
 import '../main.css';
 const App = () => (
   <div>
     <body className="gl-body">
-      <Router>
+      <HashRouter>
         <Container>
-          <h1> Questions an Answer</h1>
+          <h1> Questions and Answers</h1>
           <SearchBar />
           <Row>
             <Col>
-              <QuestionDetail />
+              <Route path="/:id" children={<QuestionDetail />} />
             </Col>
           </Row>
         </Container>
-      </Router>
+      </HashRouter>
     </body>
   </div>
 );
