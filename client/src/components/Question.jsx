@@ -6,6 +6,7 @@ import Row from 'react-bootstrap/Row';
 const Question = (props) => {
     return (
         <>
+
             <Container>
                 <Row>
                     <Col>
@@ -23,7 +24,7 @@ const Question = (props) => {
                     <Col>
                         <div className="gl-answers">
                             {
-                                `  Q:  ${props.questions}`
+                                `  A:  Answer will go heere`
                             }
                         </div>
                     </Col>

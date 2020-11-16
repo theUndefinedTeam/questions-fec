@@ -1,8 +1,5 @@
 import React, { Component, useState, useEffect } from 'react';
-import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import { NavLink } from 'react-router-dom';
+import Accordion from 'react-bootstrap/Accordion';
 import { useParams } from "react-router-dom";
 import getquestions from '../api/getquestions.jsx'
 import Question from './Question.jsx'
@@ -21,7 +18,7 @@ const QuestionDetail = (props) => {
   }
   const [questions, setQuestions] = useState([]);
   const mappedQuestions = questions.map((questions, i) => <Question questions={questions} key={i} />)
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   useEffect(() => {
     getAll().then((result) => {
       setQuestions(result)
@@ -31,7 +28,26 @@ const QuestionDetail = (props) => {
 
   return (
     <div>
-      {questions.length && mappedQuestions}
+      {mappedQuestions.slice(0, 2)}
+      {mappedQuestions.length > 2 && (
+        <Accordion>
+          <Accordion.Collapse eventKey="0">
+            <div>
+              {mappedQuestions.slice(2)}
+            </div>
+          </Accordion.Collapse>
+          <Accordion.Toggle
+            className="gl-button"
+            varient="link"
+            eventKey="0"
+            onClick={() => setOpen(!open)}
+          >
+            {open && 'Load More Questions'}
+            {' '}
+            {!open && 'See Less Questions'}
+          </Accordion.Toggle>
+        </Accordion>
+      )}
     </div>
   );
 }
