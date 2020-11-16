@@ -7,32 +7,31 @@ import { useParams } from "react-router-dom";
 import getquestions from '../api/getquestions.jsx'
 import Question from './Question.jsx'
 
-
+//sds
 
 const QuestionDetail = (props) => {
-  let { id } = useParams();
-  console.log(id)
+  let { productId } = useParams();
   const getAll = () => {
-    return getquestions(id).then(function (obj) {
+    return getquestions(productId).then(function (obj) {
       var promises = obj.data.results.map(function (question) {
         return question
       });
       return Promise.all(promises);
     });
   }
-  const [questions, setQuestions] = useState([])
+  const [questions, setQuestions] = useState([]);
+  const mappedQuestions = questions.map((questions, i) => <Question questions={questions} key={i} />)
+  const [open, setOpen] = useState(false);
   useEffect(() => {
     getAll().then((result) => {
       setQuestions(result)
     })
-  }, [])
-  // Declare a new state variable, which we'll call "count"  const [count, setCount] = useState(0);
+  }, [productId])
+
 
   return (
     <div>
-      {questions.length && questions.map((questions, key) => (
-        < Question questions={questions} key={key} />
-      ))}
+      {questions.length && mappedQuestions}
     </div>
   );
 }
