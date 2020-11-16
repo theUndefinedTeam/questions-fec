@@ -18,7 +18,7 @@ const App = () => (
           <SearchBar />
           <Row>
             <Col>
-              <Route path="/:id" children={<QuestionDetail />} />
+              <Route path="/:productId" children={<QuestionDetail />} />
             </Col>
           </Row>
         </Container>
