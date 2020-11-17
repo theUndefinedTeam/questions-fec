@@ -3,6 +3,7 @@ import Accordion from 'react-bootstrap/Accordion';
 import { useParams } from "react-router-dom";
 import getquestions from '../api/getquestions.jsx'
 import Question from './Question.jsx'
+import AnswerDetail from './AnswerDetail.jsx'
 
 //sds
 
