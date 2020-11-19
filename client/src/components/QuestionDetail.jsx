@@ -3,7 +3,7 @@ import Accordion from 'react-bootstrap/Accordion';
 import { useParams } from "react-router-dom";
 import getquestions from '../api/getquestions.jsx'
 import Question from './Question.jsx'
-import AnswerDetail from './AnswerDetail.jsx'
+
 
 //sds
 
@@ -25,11 +25,11 @@ const QuestionDetail = (props) => {
       setQuestions(result)
     })
   }, [productId])
-
+  const slicedMap = mappedQuestions.slice(0, 2)
 
   return (
     <div>
-      {mappedQuestions.slice(0, 2)}
+      {slicedMap}
       {mappedQuestions.length > 2 && (
         <Accordion>
           <Accordion.Collapse eventKey="0">
@@ -43,9 +43,7 @@ const QuestionDetail = (props) => {
             eventKey="0"
             onClick={() => setOpen(!open)}
           >
-            {open && 'Load More Questions'}
-            {' '}
-            {!open && 'See Less Questions'}
+            {open ? 'Load more questions' : 'See Less Questions'}
           </Accordion.Toggle>
         </Accordion>
       )}

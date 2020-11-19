@@ -1,4 +1,5 @@
 import React from 'react'
+
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -19,7 +20,7 @@ const Answer = ({ answer }) => {
                     <Row>
                         <Col xs={4}>
                             {
-                                `by ${answer.answerer_name}`// .concat(` ${answer.date}`) need to format
+                                `by ${answer.answerer_name}, ${format(new Date(answer.date), 'MMMM dd, yyyy')}`// .concat(` ${answer.date}`) need to format
                             }
                         </Col>
                         <Col xs={4}>
