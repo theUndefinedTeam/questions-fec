@@ -3,6 +3,10 @@ import Accordion from 'react-bootstrap/Accordion';
 import { useParams } from "react-router-dom";
 import getquestions from '../api/getquestions.jsx'
 import Question from './Question.jsx'
+import AddQuestion from './addQuestion.jsx'
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 
 
 //sds
@@ -34,7 +38,7 @@ const QuestionDetail = (props) => {
         <Accordion>
           <Accordion.Collapse eventKey="0">
             <div>
-              {mappedQuestions.slice(2)}
+              {slicedMap}
             </div>
           </Accordion.Collapse>
           <Accordion.Toggle
@@ -47,6 +51,12 @@ const QuestionDetail = (props) => {
           </Accordion.Toggle>
         </Accordion>
       )}
+      <div className="col-sm-auto">
+        <AddQuestion
+          productQuestion={productId}
+          setQuestions={setQuestions}
+        />
+      </div>
     </div>
   );
 }
