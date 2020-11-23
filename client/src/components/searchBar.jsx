@@ -1,5 +1,4 @@
 import React from 'react';
-
 const SearchBar = () => {
   const nothing = null;
   return (
@@ -7,7 +6,7 @@ const SearchBar = () => {
       <div className="row">
         <div className="col-12">
           <div className="input-group">
-            <input className="form-control border-secondary py-2" type="search" placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS" />
+            <input className="form-control border-secondary py-2" type="search" placeholder="Search for Questions" />
             <div className="input-group-append">
               <button className="btn btn-outline-secondary" type="button">
                 <i className="fa fa-search" />

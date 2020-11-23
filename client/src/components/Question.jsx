@@ -1,12 +1,13 @@
 import React from 'react'
-import { useEffect } from 'react';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+import AnswerDetail from './AnswerDetail.jsx'
+import HelpfulQuestion from './helpfulQuestion.jsx'
+
 const Question = (props) => {
     return (
         <>
-
             <Container>
                 <Row>
                     <Col>
@@ -16,19 +17,15 @@ const Question = (props) => {
                             }
                         </div>
                         <Col>
-
+                            <AnswerDetail question={props.questions} />
                         </Col>
                     </Col>
                     <Col>
+                        <HelpfulQuestion helpfulBody={props.questions} />
                     </Col>
                     <Col>
-                        <div className="gl-answers">
-                            {
-                                `  A:  Answer will go heere`
-                            }
-                        </div>
+                        Add Answer
                     </Col>
-
 
                 </Row>
             </Container>
