@@ -1,9 +1,10 @@
 import React from 'react'
-
+import HelpfulAnswer from './helpfulAnswer.jsx'
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import { format, formatRelative } from 'date-fns'
+import ProductPhotos from './productPhotos.jsx';
 
 
 
@@ -18,29 +19,31 @@ const Answer = ({ answer }) => {
                 <div className="gl-answerInfo">
 
                     <Row>
-                        <Col xs={4}>
-                            {
-                                `by ${answer.answerer_name}, ${format(new Date(answer.date), 'MMMM dd, yyyy')}`// .concat(` ${answer.date}`) need to format
-                            }
+                        <Col>
+                            <Row >
+                                {
+                                    `by ${answer.answerer_name}, ${format(new Date(answer.date), 'MMMM dd, yyyy')},  report`// .concat(` ${answer.date}`) need to format
+                                }
+                            </Row>
                         </Col>
                         <Col xs={4}>
-                            {/* <HelpfulAnswer helpfulBody={answer} /> */}
+                            <HelpfulAnswer helpfulBody={answer} />
                         </Col>
                         <Col xs={2}>
-                            report
-              </Col>
+
+                        </Col>
                     </Row>
                 </div>
                 <Container>
                     <Row>
-                        {/* {answer.photos !== undefined
-                ? answer.photos.map((photos) => (
-                  <ProductPhotos
-                    photos={photos}
-                    key={photos.id}
-                  />
-                ))
-                : null} */}
+                        {answer.photos !== undefined
+                            ? answer.photos.map((photos) => (
+                                <ProductPhotos
+                                    photos={photos}
+                                    key={photos.id}
+                                />
+                            ))
+                            : null}
                     </Row>
                 </Container>
             </div>

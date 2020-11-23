@@ -2,8 +2,8 @@ import React from 'react'
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import { format, formatRelative } from 'date-fns'
 import AnswerDetail from './AnswerDetail.jsx'
+import HelpfulQuestion from './helpfulQuestion.jsx'
 
 const Question = (props) => {
     return (
@@ -16,17 +16,17 @@ const Question = (props) => {
                                 `  Q:  ${props.questions.question_body}`
                             }
                         </div>
-                        <Col> <small>by  {props.questions.asker_name},  {format(new Date(props.questions.question_date), 'MMMM dd, yyyy')} </small> </Col>
-                    </Col>
-                    <Col>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <div className="gl-questions">
+                        <Col>
                             <AnswerDetail question={props.questions} />
-                        </div>
+                        </Col>
                     </Col>
+                    <Col>
+                        <HelpfulQuestion helpfulBody={props.questions} />
+                    </Col>
+                    <Col>
+                        Add Answer
+                    </Col>
+
                 </Row>
             </Container>
         </>
