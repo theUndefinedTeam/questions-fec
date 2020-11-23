@@ -7,7 +7,7 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "build": "webpack --mode production",
+    "build": "webpack --mode",
     "react-dev": "webpack -d --watch",
     "start": "live-server ./dist",
     "dev": "node index.js ./server"
